@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'サポート — おこっち';
+const description = 'おこっちアプリのサポート情報。不具合報告・お問い合わせ・よくある質問について。';
+
+const faqs = [
+  {
+    q: 'お子さまを3人以上登録するにはどうすればいいですか？',
+    a: '無料版では2人まで登録できます。3人目以降を追加するには、アプリ内課金「Pro版」（¥600・買い切り）をご購入ください。一度のお支払いで永続的にご利用いただけます。',
+  },
+  {
+    q: 'PIN（暗証番号）を忘れてしまいました',
+    a: '初回設定時に表示された「リカバリーコード」、または登録した電話番号を使って復帰できます。Face ID を登録している場合は Face ID でも解除可能です。',
+  },
+  {
+    q: 'データはどこに保存されますか？',
+    a: 'すべてのデータはお使いの iPhone 端末内のみに保存されます。当方を含む第三者に送信されることはありません。詳しくは [プライバシーポリシー](/okocchi/privacy) をご覧ください。',
+  },
+  {
+    q: '機種変更したらデータは引き継げますか？',
+    a: '本バージョンではクラウド同期機能は提供していません。アプリのアンインストールや機種変更でデータは消えますので、重要な情報は別途記録されることを推奨します。将来的に同期機能の追加を検討しています。',
+  },
+  {
+    q: 'Pro版を購入したのに反映されません',
+    a: 'アプリ内の「購入を復元する」をお試しください。それでも改善しない場合は、お手数ですが support@kcyf.jp までご連絡ください。',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-3xl px-5 sm:px-6 py-12 sm:py-16">
+    <header class="text-center mb-10 sm:mb-14">
+      <p class="text-sm text-coral-dark font-semibold tracking-widest mb-2">SUPPORT</p>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">おこっちサポート</h1>
+      <p class="mt-4 text-ink-secondary leading-relaxed">
+        ご質問・ご要望・不具合のご報告など、<br class="sm:hidden" />お気軽にご連絡ください。
+      </p>
+    </header>
+
+    <!-- 連絡先カード -->
+    <div class="bg-white rounded-2xl p-7 sm:p-9 shadow-sm border border-coral-light/40 mb-10">
+      <p class="text-sm text-ink-muted mb-2">お問い合わせ先</p>
+      <a
+        href="mailto:support@kcyf.jp"
+        class="block text-2xl sm:text-3xl font-bold text-coral-dark hover:text-coral transition-colors mb-4 break-all"
+      >
+        support@kcyf.jp
+      </a>
+      <p class="text-sm text-ink-secondary leading-relaxed">
+        平日（月〜金）の対応となります。お返事までに数日いただく場合がございます。<br />
+        不具合のご報告では、ご利用の <strong>iOSバージョン・端末・アプリのバージョン</strong> をあわせてお知らせいただけるとスムーズです。
+      </p>
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="text-2xl font-bold mb-6">よくある質問</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-xl border border-coral-light/40 overflow-hidden">
+          <summary class="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-4 hover:bg-coral-light/30 transition-colors">
+            <span class="font-semibold text-ink-primary">{faq.q}</span>
+            <span class="text-coral-dark text-xl font-bold group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <div class="px-5 pb-5 pt-1 text-sm text-ink-secondary leading-relaxed" set:html={faq.a.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-coral-dark underline hover:text-coral">$1</a>')}>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- 関連リンク -->
+    <div class="mt-12 pt-8 border-t border-coral-light/60 grid gap-3 sm:grid-cols-2">
+      <a href="/okocchi/privacy" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors">
+        <p class="text-sm font-bold mb-1">プライバシーポリシー →</p>
+        <p class="text-xs text-ink-muted">データ取り扱いの方針</p>
+      </a>
+      <a href="/okocchi/terms" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors">
+        <p class="text-sm font-bold mb-1">利用規約 →</p>
+        <p class="text-xs text-ink-muted">アプリご利用の条件</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

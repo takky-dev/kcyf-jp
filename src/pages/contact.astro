@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'お問い合わせ — KCYF';
+const description = 'KCYFへのお問い合わせはメールで承ります。求人マーケティングのご相談、おこっちアプリのサポート、お仕事のご依頼など。';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-2xl px-5 sm:px-6 py-12 sm:py-20">
+    <header class="text-center mb-10 sm:mb-14">
+      <p class="text-sm text-coral-dark font-semibold tracking-widest mb-2">CONTACT</p>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">お問い合わせ</h1>
+      <p class="mt-4 text-ink-secondary leading-relaxed">
+        メールにて承っております。<br />
+        お気軽にご連絡ください。
+      </p>
+    </header>
+
+    <div class="bg-white rounded-2xl p-7 sm:p-10 shadow-sm border border-coral-light/40 text-center">
+      <p class="text-sm text-ink-muted mb-3">メールアドレス</p>
+      <a
+        href="mailto:support@kcyf.jp"
+        class="inline-block text-2xl sm:text-3xl font-bold text-coral-dark hover:text-coral transition-colors mb-6 break-all"
+      >
+        support@kcyf.jp
+      </a>
+      <a
+        href="mailto:support@kcyf.jp"
+        class="inline-flex items-center gap-2 bg-coral text-white px-6 py-3 rounded-full font-semibold hover:bg-coral-dark transition-colors"
+      >
+        メールを書く →
+      </a>
+    </div>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 text-sm">
+      <div class="bg-coral-light/30 rounded-xl p-5">
+        <p class="font-bold text-ink-primary mb-2">📣 求人マーケティングのご相談</p>
+        <p class="text-ink-secondary leading-relaxed">
+          媒体運用代行・求人広告のクリエイティブ作成など、採用課題のご相談を受け付けています。
+        </p>
+      </div>
+      <div class="bg-coral-light/30 rounded-xl p-5">
+        <p class="font-bold text-ink-primary mb-2">📱 おこっちアプリのサポート</p>
+        <p class="text-ink-secondary leading-relaxed">
+          不具合のご報告・機能のご要望は <a href="/okocchi/support" class="text-coral-dark underline hover:text-coral">サポートページ</a> もご活用ください。
+        </p>
+      </div>
+    </div>
+
+    <p class="text-xs text-ink-muted text-center mt-8 leading-relaxed">
+      平日（月〜金）の対応となります。<br />
+      内容により、お返事までに数日いただく場合がございます。
+    </p>
+  </section>
+</BaseLayout>

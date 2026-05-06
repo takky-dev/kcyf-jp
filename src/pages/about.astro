@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = '事業について — KCYF';
+const description = 'KCYF（Keep Connecting Your Family）の屋号の由来、ビジョン、事業の二軸（求人マーケティング運用代行 × 子育て世代向けプロダクト開発）について。';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-3xl px-5 sm:px-6 py-12 sm:py-16">
+    <header class="mb-10 sm:mb-14">
+      <p class="text-sm text-coral-dark font-semibold tracking-widest mb-2">ABOUT</p>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">事業について</h1>
+    </header>
+
+    <!-- ビジョン -->
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 pb-2 border-b border-coral-light">ビジョン</h2>
+      <p class="text-lg sm:text-xl leading-relaxed text-ink-primary font-semibold">
+        仕事に追われる毎日でも、<br />
+        <span class="text-coral-dark">家族のあたたかさを手放さずにいられる社会へ。</span>
+      </p>
+      <p class="mt-5 text-ink-secondary leading-relaxed">
+        子育て世代の多くは、仕事と家庭のあいだで日々の余白を失いがちです。KCYFは、その余白を少しでも取り戻すための仕組みづくりに取り組みます。<strong>「お金（仕事）」と「子育て」の両方</strong>に向き合うのは、その両方が家族の生活の土台だからです。
+      </p>
+    </section>
+
+    <!-- 屋号の由来 -->
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 pb-2 border-b border-coral-light">屋号の由来</h2>
+      <div class="bg-coral-light/30 rounded-2xl p-6 sm:p-8">
+        <p class="text-2xl sm:text-3xl font-bold text-coral-dark tracking-wider mb-3">KCYF</p>
+        <p class="text-lg font-semibold text-ink-primary mb-4">Keep Connecting Your Family</p>
+        <p class="text-ink-secondary leading-relaxed">
+          「家族のつながりを、絶やさずに」という願いをこめた4文字。<br />
+          子どもが成長しても、仕事が忙しくなっても、家族との縁は細くしない。<br />
+          そのための小さな道具を、つくり続けたいと考えています。
+        </p>
+      </div>
+    </section>
+
+    <!-- 事業の二軸 -->
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold mb-6 pb-2 border-b border-coral-light">事業の二軸</h2>
+
+      <div class="space-y-6">
+        <article class="bg-white rounded-2xl p-6 sm:p-8 border border-coral-light/40">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">📣</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-3">求人マーケティング運用代行</h3>
+              <p class="text-ink-secondary leading-relaxed mb-3">
+                Indeed・求人ボックスをはじめとする求人媒体の運用代行を中心に、求人広告のクリエイティブ作成・効果測定・改善提案までを一貫して支援します。
+              </p>
+              <p class="text-ink-secondary leading-relaxed">
+                数年にわたって <strong>採用代理店の業務委託</strong>として現場の数字に向き合い続けてきた経験を活かし、クライアントの採用課題を等身大の感覚で解決します。
+              </p>
+              <p class="text-sm text-ink-muted mt-4">
+                位置づけ: <strong class="text-ink-primary">収益の柱</strong>。安定した事業基盤を支える役割。
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-2xl p-6 sm:p-8 border border-coral-light/40">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl">👨‍👩‍👧‍👦</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold mb-3">子育て世代向けプロダクト開発</h3>
+              <p class="text-ink-secondary leading-relaxed mb-3">
+                4児の父である代表が、当事者として日々感じる「家族のちょっとした困りごと」を起点にiOSアプリを企画・開発しています。
+              </p>
+              <p class="text-ink-secondary leading-relaxed">
+                第一弾は、お子さまのお小遣い管理アプリ「<a href="/okocchi" class="text-coral-dark underline underline-offset-2 hover:text-coral">おこっち</a>」。きょうだいの多い家庭の困りごとに寄り添う、人数制限のないお小遣い帳です。
+              </p>
+              <p class="text-sm text-ink-muted mt-4">
+                位置づけ: <strong class="text-ink-primary">事業の核</strong>。長く育てていくプロダクト群。
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 当事者性 -->
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 pb-2 border-b border-coral-light">代表について</h2>
+      <p class="text-ink-secondary leading-relaxed mb-3">
+        KCYF代表は、<strong class="text-ink-primary">大阪府東大阪市在住・4児の父</strong>です。
+        日々の子育てのなかで生まれる小さな課題に、当事者として向き合っています。
+      </p>
+      <p class="text-ink-secondary leading-relaxed">
+        「家族と過ごす時間を大切にしながら、仕事でも価値を出していく」<br />
+        その両立を、自身の事業を通して体現することを目指しています。
+      </p>
+    </section>
+
+    <!-- 提供者情報 -->
+    <section class="mb-12">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 pb-2 border-b border-coral-light">提供者情報</h2>
+      <dl class="bg-white rounded-2xl p-6 border border-coral-light/40 space-y-3 text-sm">
+        <div class="flex flex-col sm:flex-row sm:gap-6">
+          <dt class="font-semibold text-ink-primary sm:w-32 shrink-0">屋号</dt>
+          <dd class="text-ink-secondary">KCYF（個人事業主）</dd>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:gap-6">
+          <dt class="font-semibold text-ink-primary sm:w-32 shrink-0">所在地</dt>
+          <dd class="text-ink-secondary">大阪府東大阪市</dd>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:gap-6">
+          <dt class="font-semibold text-ink-primary sm:w-32 shrink-0">連絡先</dt>
+          <dd class="text-ink-secondary">
+            <a href="mailto:support@kcyf.jp" class="text-coral-dark underline underline-offset-2 hover:text-coral">support@kcyf.jp</a>
+          </dd>
+        </div>
+      </dl>
+      <p class="text-xs text-ink-muted mt-3">
+        将来的に法人化を予定しております。
+      </p>
+    </section>
+
+    <div class="text-center pt-6">
+      <a href="/contact" class="inline-flex items-center gap-2 bg-coral text-white px-6 py-3 rounded-full font-semibold hover:bg-coral-dark transition-colors">
+        お問い合わせはこちら →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

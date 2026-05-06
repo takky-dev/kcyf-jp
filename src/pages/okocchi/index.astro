@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'おこっち — 何人でも使える子どものお小遣い帳';
+const description = '3人以上のお子さまもぜんぶ登録できる、家族で使うiOSお小遣いアプリ。子ども自身が記録できるやさしいUI、データはすべて端末内で安全に管理。';
+
+const features = [
+  {
+    icon: '👨‍👩‍👧‍👦',
+    title: '何人でも登録できる',
+    body: '無料版でも2人まで、Pro版なら人数制限なし。きょうだいが多くても、おばあちゃんと共用でも、家族みんなのお小遣いをひとつのアプリで管理できます。',
+  },
+  {
+    icon: '🧒',
+    title: '子どもがじぶんでつけられる',
+    body: 'ぜんぶひらがなのやさしいUI。小学校低学年でも自分のカードをタップして「もらえた」「おかいもの」を記録できます。親が代わりに入力する必要はありません。',
+  },
+  {
+    icon: '🐯',
+    title: '動物アバターでたのしく',
+    body: 'とら・きつね・うさぎ・ひよこ……。お子さまごとに動物と色を選んで自分専用カードに。ホーム画面で家族全員の残高がひと目でわかります。',
+  },
+  {
+    icon: '📊',
+    title: '月別レポートでふりかえり',
+    body: '何にいくら使ったか、いつもらったか、月ごとに収支をふりかえれます。記録をつづけることで、お金の感覚が自然と身につきます。',
+  },
+  {
+    icon: '🔒',
+    title: '暗証番号でしっかり守る',
+    body: 'おうちの方の管理画面はPINで保護。お子さまごとに別々の暗証番号も設定可能で、きょうだい同士のプライバシーも守れます。',
+  },
+  {
+    icon: '🛡️',
+    title: 'プライバシーに配慮',
+    body: 'すべてのデータは端末内のみで管理。広告SDK・解析ツール・トラッキング機能は一切なし。COPPA準拠で、お子さまから個人情報を取得しません。',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-coral-light/70 via-base-bg to-base-bg pointer-events-none"></div>
+    <div class="relative mx-auto max-w-5xl px-5 sm:px-6 pt-10 sm:pt-16 pb-12 sm:pb-20">
+      <div class="grid items-center gap-8 md:grid-cols-2">
+        <div class="order-2 md:order-1 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-3 mb-5">
+            <img
+              src="/images/okocchi/icon.png"
+              alt="おこっちアプリのアイコン"
+              width="72"
+              height="72"
+              class="rounded-2xl shadow-md w-16 h-16 sm:w-[72px] sm:h-[72px]"
+            />
+            <div class="text-left">
+              <p class="text-xs text-coral-dark font-semibold tracking-widest">FOR FAMILIES</p>
+              <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">おこっち</h1>
+            </div>
+          </div>
+          <p class="text-lg sm:text-xl font-semibold text-ink-primary leading-relaxed">
+            何人でも使える、<br class="sm:hidden" />子どものお小遣い帳。
+          </p>
+          <p class="mt-4 text-base text-ink-secondary leading-relaxed">
+            3人以上のお子さまもぜんぶ登録できる、家族で使うiOSアプリ。<br class="hidden sm:inline" />
+            お子さま自身が「もらえた」「おかいもの」を記録できる、やさしいUIです。
+          </p>
+
+          <div class="mt-7 flex flex-wrap justify-center md:justify-start gap-3">
+            <span
+              class="inline-flex items-center gap-2 bg-ink-primary/90 text-white px-5 py-3 rounded-full font-semibold opacity-70 cursor-not-allowed"
+              aria-disabled="true"
+            >
+               App Store 公開準備中
+            </span>
+            <a
+              href="/okocchi/support"
+              class="inline-flex items-center gap-2 bg-white text-ink-primary px-5 py-3 rounded-full font-semibold border border-coral-light hover:border-coral hover:text-coral-dark transition-colors"
+            >
+              サポートを見る
+            </a>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 flex justify-center">
+          <img
+            src="/images/okocchi/mascot.png"
+            alt="おこっちのマスコットキャラクター"
+            width="360"
+            height="360"
+            class="w-56 sm:w-72 md:w-80 h-auto drop-shadow-md"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主要機能 -->
+  <section class="mx-auto max-w-6xl px-5 sm:px-6 py-12 sm:py-16">
+    <h2 class="text-center text-2xl sm:text-3xl font-bold mb-3">おこっちの特長</h2>
+    <p class="text-center text-ink-secondary mb-10">
+      「3人以上の家庭」と「子ども自身でつける」という2つの軸で考えました。
+    </p>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map((f) => (
+        <article class="bg-white rounded-2xl p-6 shadow-sm border border-coral-light/40">
+          <div class="text-3xl mb-3">{f.icon}</div>
+          <h3 class="text-lg font-bold mb-2">{f.title}</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed">{f.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 価格 -->
+  <section class="bg-coral-light/30">
+    <div class="mx-auto max-w-4xl px-5 sm:px-6 py-14">
+      <h2 class="text-center text-2xl sm:text-3xl font-bold mb-3">価格</h2>
+      <p class="text-center text-ink-secondary mb-10">
+        基本機能はすべて無料。お子さまの人数だけ、必要に応じて。
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <article class="bg-white rounded-2xl p-7 shadow-sm border border-coral-light/40">
+          <p class="text-xs font-semibold tracking-widest text-ink-muted mb-2">FREE</p>
+          <h3 class="text-xl font-bold mb-1">無料</h3>
+          <p class="text-3xl font-bold text-ink-primary mb-4">¥0</p>
+          <ul class="space-y-2 text-sm text-ink-secondary">
+            <li>・お子さま2人まで登録可能</li>
+            <li>・すべての機能を利用可能</li>
+            <li>・広告なし</li>
+          </ul>
+        </article>
+        <article class="bg-white rounded-2xl p-7 shadow-sm border-2 border-coral relative">
+          <span class="absolute -top-3 right-5 bg-coral text-white text-xs font-bold px-3 py-1 rounded-full">
+            おすすめ
+          </span>
+          <p class="text-xs font-semibold tracking-widest text-coral-dark mb-2">PRO（買い切り）</p>
+          <h3 class="text-xl font-bold mb-1">Pro版（無制限）</h3>
+          <p class="text-3xl font-bold text-coral-dark mb-4">¥600 <span class="text-sm font-normal text-ink-secondary">／一度のお支払い</span></p>
+          <ul class="space-y-2 text-sm text-ink-secondary">
+            <li>・お子さま<strong class="text-ink-primary">無制限</strong>で登録可能</li>
+            <li>・サブスクではなく買い切り</li>
+            <li>・3人以上のご家庭向け</li>
+          </ul>
+        </article>
+      </div>
+      <p class="text-xs text-ink-muted text-center mt-6">
+        購入処理は Apple社 の App Store を通じて行われます。返金は Apple社 の返金ポリシーに従います。
+      </p>
+    </div>
+  </section>
+
+  <!-- 規約・サポートリンク -->
+  <section class="mx-auto max-w-3xl px-5 sm:px-6 py-12 sm:py-16">
+    <h2 class="text-center text-2xl font-bold mb-6">各種ドキュメント</h2>
+    <div class="grid gap-3 sm:grid-cols-3">
+      <a href="/okocchi/privacy" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors text-center">
+        <p class="text-sm font-bold mb-1">プライバシーポリシー</p>
+        <p class="text-xs text-ink-muted">データ取り扱いについて</p>
+      </a>
+      <a href="/okocchi/terms" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors text-center">
+        <p class="text-sm font-bold mb-1">利用規約</p>
+        <p class="text-xs text-ink-muted">ご利用条件</p>
+      </a>
+      <a href="/okocchi/support" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors text-center">
+        <p class="text-sm font-bold mb-1">サポート</p>
+        <p class="text-xs text-ink-muted">お問い合わせ・FAQ</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

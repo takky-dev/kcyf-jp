@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'ページが見つかりません — KCYF';
+const description = 'お探しのページは見つかりませんでした。';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-xl px-5 sm:px-6 py-20 sm:py-32 text-center">
+    <p class="text-7xl sm:text-9xl font-bold text-coral-light tracking-tight mb-4">404</p>
+    <h1 class="text-2xl sm:text-3xl font-bold mb-4">ページが見つかりません</h1>
+    <p class="text-ink-secondary leading-relaxed mb-10">
+      お探しのページは、移動・削除されたか、URLが間違っている可能性があります。
+    </p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/" class="inline-flex items-center gap-2 bg-coral text-white px-6 py-3 rounded-full font-semibold hover:bg-coral-dark transition-colors">
+        ホームに戻る
+      </a>
+      <a href="/okocchi" class="inline-flex items-center gap-2 bg-white text-ink-primary px-6 py-3 rounded-full font-semibold border border-coral-light hover:border-coral hover:text-coral-dark transition-colors">
+        おこっちを見る
+      </a>
+    </div>
+  </section>
+</BaseLayout>
