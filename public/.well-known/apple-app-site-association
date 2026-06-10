@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["ZZCX8VGUFP.com.kcyf.Okocchi"],
+        "components": [
+          { "/": "/invite/*", "comment": "おこっち 家族招待リンク" }
+        ]
+      }
+    ]
+  }
+}

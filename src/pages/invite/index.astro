@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// 招待リンク（https://kcyf.jp/invite/<コード>）の着地ページ。
+// アプリ未インストールの端末で開かれた場合のみ表示される
+// （インストール済みなら Universal Links により iOS がアプリを直接開く）。
+// コード部分は静的ビルドのため、クライアント側 JS で URL から読み取る。
+const title = 'おこっちに招待されています | KCYF';
+const description = '家族からおこっち（子どものお小遣い帳アプリ）に招待されています。アプリをインストールして、招待コードで参加しましょう。';
+const APP_STORE_URL = 'https://apps.apple.com/app/id6768400152';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-coral-light/70 via-base-bg to-base-bg pointer-events-none"></div>
+    <div class="relative mx-auto max-w-xl px-5 sm:px-6 pt-10 sm:pt-16 pb-16 text-center">
+      <img
+        src="/images/okocchi/mascot.png"
+        alt="おこっちのマスコットキャラクター"
+        width="160"
+        height="160"
+        class="w-32 sm:w-40 h-auto mx-auto drop-shadow-md mb-5"
+      />
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-tight mb-3">
+        おこっちに<br class="sm:hidden" />招待されています 👨‍👩‍👧
+      </h1>
+      <p class="text-ink-secondary leading-relaxed mb-8">
+        ご家族から、お小遣い帳アプリ「おこっち」の<br class="hidden sm:inline" />
+        家族グループに招待されています。
+      </p>
+
+      <!-- 招待コード（URL から JS で表示） -->
+      <div id="code-block" class="hidden mb-8">
+        <p class="text-sm text-ink-muted mb-2">あなたの招待コード</p>
+        <div class="inline-block max-w-full bg-white rounded-2xl border border-coral-light shadow-sm px-5 sm:px-8 py-4">
+          <p id="invite-code" class="text-2xl sm:text-3xl font-bold tracking-[0.18em] sm:tracking-[0.3em] text-coral-dark"></p>
+        </div>
+      </div>
+
+      <!-- 手順 -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-coral-light/40 text-left space-y-6 mb-8">
+        <div class="flex gap-4 items-start">
+          <span class="flex-none w-7 h-7 rounded-full bg-coral text-white text-sm font-bold flex items-center justify-center">1</span>
+          <div class="flex-1">
+            <p class="font-bold mb-2">アプリをインストール</p>
+            <a
+              href={APP_STORE_URL}
+              class="inline-flex items-center gap-2 bg-ink-primary text-white px-5 py-3 rounded-full font-semibold hover:bg-ink-primary/80 transition-colors"
+            >
+              App Store で入手 →
+            </a>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="flex-none w-7 h-7 rounded-full bg-coral text-white text-sm font-bold flex items-center justify-center">2</span>
+          <div class="flex-1">
+            <p class="font-bold mb-1">招待コードで参加</p>
+            <p class="text-sm text-ink-secondary leading-relaxed">
+              アプリを開いて「<span class="font-semibold">招待コードで参加する</span>」をタップし、上のコードを入力してください。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- インストール済みの人向け -->
+      <p class="text-sm text-ink-muted">
+        すでにアプリをお持ちの方は
+        <a id="open-app" href="#" class="text-coral-dark underline underline-offset-2 hover:text-coral font-semibold">アプリで開く</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // /invite/<コード> からコードを抽出して表示・リンクに反映する
+    const match = location.pathname.match(/^\/invite\/([A-Za-z0-9]{4,16})\/?$/);
+    const code = match ? match[1].toUpperCase() : null;
+    if (code) {
+      const codeBlock = document.getElementById('code-block');
+      const codeEl = document.getElementById('invite-code');
+      if (codeBlock && codeEl) {
+        codeEl.textContent = code;
+        codeBlock.classList.remove('hidden');
+      }
+      const openApp = document.getElementById('open-app');
+      if (openApp) openApp.setAttribute('href', `okocchi://invite/${code}`);
+    } else {
+      // コードなしで開かれた場合は「アプリで開く」リンクを隠す（飛び先がないため）
+      const openAppWrap = document.getElementById('open-app');
+      if (openAppWrap) openAppWrap.parentElement?.classList.add('hidden');
+    }
+  </script>
+</BaseLayout>

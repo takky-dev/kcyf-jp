@@ -1,0 +1,3 @@
+# Apple Universal Links: AASA は application/json で返す必要がある
+/.well-known/apple-app-site-association
+  Content-Type: application/json
