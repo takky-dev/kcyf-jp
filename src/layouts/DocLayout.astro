@@ -8,6 +8,10 @@ interface FrontmatterProps {
   ogTitle?: string;
   ogDescription?: string;
   canonical?: string;
+  /** どのアプリの文書か（タイトル末尾と戻りリンクに使う）。未指定なら「おこっち」 */
+  appName?: string;
+  /** 戻りリンクの遷移先。未指定なら appName から推測せず /okocchi */
+  appPath?: string;
 }
 
 interface Props extends FrontmatterProps {
@@ -16,7 +20,10 @@ interface Props extends FrontmatterProps {
 
 const props = (Astro.props.frontmatter ?? Astro.props) as FrontmatterProps;
 const { title, description, lastUpdated, ogTitle, ogDescription, canonical } = props;
-const pageTitle = `${title}｜おこっち`;
+// 既存のおこっちの文書は appName を持たないので、従来どおりの表示になるようフォールバックする
+const appName = props.appName ?? 'おこっち';
+const appPath = props.appPath ?? '/okocchi';
+const pageTitle = `${title}｜${appName}`;
 ---
 
 <BaseLayout
@@ -29,7 +36,7 @@ const pageTitle = `${title}｜おこっち`;
   <article class="mx-auto max-w-3xl px-5 sm:px-6 py-10 sm:py-14">
     <header class="mb-8 sm:mb-12 border-b border-coral-light pb-6">
       <p class="text-sm text-ink-muted mb-2">
-        <a href="/okocchi" class="hover:text-coral-dark">← おこっち</a>
+        <a href={appPath} class="hover:text-coral-dark">← {appName}</a>
       </p>
       <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">{title}</h1>
       {lastUpdated && (

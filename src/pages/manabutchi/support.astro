@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'サポート — まなぶっち';
+const description = 'まなぶっちアプリのサポート情報。不具合報告・お問い合わせ・よくある質問について。';
+
+const faqs = [
+  {
+    q: 'アカウント登録は必要ですか？',
+    a: '必要ありません。アプリを入れたらすぐに遊べます。メールアドレスやお名前の登録も一切不要です。',
+  },
+  {
+    q: 'データはどこに保存されますか？',
+    a: '学習の記録・すごろくの進み具合・集めたカードは、すべてお使いの端末内にのみ保存されます。当方のサーバーに送信されることはありません。詳しくは [プライバシーポリシー](/manabutchi/privacy) をご覧ください。',
+  },
+  {
+    q: '機種変更したらデータは引き継げますか？',
+    a: '本バージョンではデータの引き継ぎ機能を提供していません。端末内にのみ保存しているため、アンインストールや機種変更で記録は消えます。将来的な対応を検討しています。',
+  },
+  {
+    q: '学年はあとから変えられますか？',
+    a: 'いつでも変更できます。「えらぶ」タブ →「かんじ」の右上にある学年のボタンから切り替えてください。',
+  },
+  {
+    q: '「きょうの1マス」は1日に何回できますか？',
+    a: 'すごろくが進むのは1日1マスまでです。それ以上あそびたいときは「えらぶ」タブから、好きなミニゲームを何度でも自由にあそべます（すごろくは進みません）。',
+  },
+  {
+    q: '前の日にあそべなかった分はどうなりますか？',
+    a: '消えません。翌日に「きのうのぶんも やる？」が表示され、1マス分だけ取り返せます。連続記録がリセットされることはないので、安心してお休みしてください。',
+  },
+  {
+    q: 'かんじ図鑑のカードはどうすると増えますか？',
+    a: 'ミニゲームでその漢字に正解すると集まります。さらに、日をあけてもう一度正解できると「ひかる」「キラキラ」とカードが育ちます（覚えているほどレアになる仕組みです）。',
+  },
+  {
+    q: '広告は消せますか？',
+    a: '現在のバージョンでは広告を非表示にする方法はありません。表示される広告は、お子さまの興味・関心に基づかない非パーソナライズ広告に限定しています。',
+  },
+  {
+    q: '漢字の読み方が学校で習ったものと違います',
+    a: '文部科学省の「学年別漢字配当表」および「音訓の小・中・高等学校段階別割り振り表」を参照して作成していますが、教科書や先生の指導と細部が異なる場合があります。その場合は学校の指導を優先してください。お気づきの点は support@kcyf.jp までお知らせいただけると助かります。',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-3xl px-5 sm:px-6 py-12 sm:py-16">
+    <header class="text-center mb-10 sm:mb-14">
+      <p class="text-sm text-coral-dark font-semibold tracking-widest mb-2">SUPPORT</p>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">まなぶっちサポート</h1>
+      <p class="mt-4 text-ink-secondary leading-relaxed">
+        ご質問・ご要望・不具合のご報告など、<br class="sm:hidden" />お気軽にご連絡ください。
+      </p>
+    </header>
+
+    <!-- 連絡先カード -->
+    <div class="bg-white rounded-2xl p-7 sm:p-9 shadow-sm border border-coral-light/40 mb-10">
+      <p class="text-sm text-ink-muted mb-2">お問い合わせ先</p>
+      <a
+        href="mailto:support@kcyf.jp"
+        class="block text-2xl sm:text-3xl font-bold text-coral-dark hover:text-coral transition-colors mb-4 break-all"
+      >
+        support@kcyf.jp
+      </a>
+      <p class="text-sm text-ink-secondary leading-relaxed">
+        平日（月〜金）の対応となります。お返事までに数日いただく場合がございます。<br />
+        不具合のご報告では、ご利用の <strong>iOSバージョン・端末・アプリのバージョン</strong> をあわせてお知らせいただけるとスムーズです。
+      </p>
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="text-2xl font-bold mb-6">よくある質問</h2>
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-xl border border-coral-light/40 overflow-hidden">
+          <summary class="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-4 hover:bg-coral-light/30 transition-colors">
+            <span class="font-semibold text-ink-primary">{faq.q}</span>
+            <span class="text-coral-dark text-xl font-bold group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <div class="px-5 pb-5 pt-1 text-sm text-ink-secondary leading-relaxed" set:html={faq.a.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-coral-dark underline hover:text-coral">$1</a>')}>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- 関連リンク -->
+    <div class="mt-12 pt-8 border-t border-coral-light/60 grid gap-3 sm:grid-cols-2">
+      <a href="/manabutchi/privacy" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors">
+        <p class="text-sm font-bold mb-1">プライバシーポリシー →</p>
+        <p class="text-xs text-ink-muted">データ取り扱いの方針</p>
+      </a>
+      <a href="/manabutchi/terms" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors">
+        <p class="text-sm font-bold mb-1">利用規約 →</p>
+        <p class="text-xs text-ink-muted">アプリご利用の条件</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
