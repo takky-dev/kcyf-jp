@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'KCYF — 仕事の毎日に、家族のあたたかさを';
-const description = '求人マーケティング運用代行と、子育て世代向けプロダクト開発。「仕事に追われる毎日でも、家族のあたたかさを手放さずにいられる社会」を目指す個人事業 KCYF の公式サイト。';
+const description = '子育て世代向けのアプリをつくる個人事業 KCYF の公式サイト。子どものお小遣い帳「おこっち」、小学生の学習アプリ「まなぶっち」。「仕事に追われる毎日でも、家族のあたたかさを手放さずにいられる社会」を目指しています。';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -18,15 +18,21 @@ const description = '求人マーケティング運用代行と、子育て世�
         <span class="text-coral-dark">家族のあたたかさを</span><br class="sm:hidden" />手放さずに<br />いられる社会へ。
       </h1>
       <p class="mt-6 text-base sm:text-lg text-ink-secondary leading-relaxed max-w-2xl mx-auto">
-        4児の父が当事者としてつくる、<br class="sm:hidden" />
-        家族の暮らしをそっと支えるiOSアプリ。
+        4人の子どもを育てる家族が、当事者としてつくる、<br class="sm:hidden" />
+        家族の暮らしをそっと支えるアプリ。
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
         <a
           href="/okocchi"
           class="inline-flex items-center gap-2 bg-coral text-white px-6 py-3 rounded-full font-semibold shadow-sm hover:bg-coral-dark transition-colors"
         >
-          おこっちアプリを見る →
+          おこっちを見る →
+        </a>
+        <a
+          href="/manabutchi"
+          class="inline-flex items-center gap-2 bg-coral text-white px-6 py-3 rounded-full font-semibold shadow-sm hover:bg-coral-dark transition-colors"
+        >
+          まなぶっちを見る →
         </a>
         <a
           href="/contact"
@@ -44,7 +50,7 @@ const description = '求人マーケティング運用代行と、子育て世�
       <h2 class="text-center text-2xl sm:text-3xl font-bold mb-4">私たちについて</h2>
       <div class="bg-white rounded-2xl p-7 sm:p-10 shadow-sm space-y-5 leading-relaxed text-ink-primary">
         <p>
-          KCYF は <strong>4児の父</strong>でもある代表が、家族とともに走る個人事業です。
+          KCYF は <strong>4人の子どもを育てる</strong>代表が、家族とともに走る個人事業です。
         </p>
         <p>
           毎日の仕事に追われていても、<strong>子どもたちと向き合う時間</strong>だけは手放したくない。
@@ -98,16 +104,57 @@ const description = '求人マーケティング運用代行と、子育て世�
         </div>
       </div>
       <p class="text-xs text-ink-muted mt-5 text-center sm:text-right">
-        <a href="https://apps.apple.com/app/id6768400152" target="_blank" rel="noopener noreferrer" class="text-coral-dark underline underline-offset-2 hover:text-coral">App Store で配信中 →</a>
+        <span class="text-coral-dark">App Store で配信中</span>
       </p>
     </a>
 
-    <article class="mt-6 bg-coral-light/30 rounded-2xl p-6 sm:p-7 border border-coral-light/60">
-      <p class="text-xs text-ink-muted font-semibold tracking-widest mb-2">NEXT — 構想中</p>
-      <h3 class="text-lg font-bold mb-2">中学受験まわりのプロダクト</h3>
-      <p class="text-sm text-ink-secondary leading-relaxed">
-        我が家での経験を起点に、中学受験を経験するご家庭の「親と子のすれちがい」をやわらげるプロダクトを温めています。詳細は固まり次第お知らせします。
+    <a
+      href="/manabutchi"
+      class="group mt-6 block bg-white rounded-3xl p-7 sm:p-10 shadow-sm border border-coral-light/40 hover:border-coral transition-colors"
+    >
+      <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+        <img
+          src="/images/manabutchi/icon.png"
+          alt="まなぶっちアプリのアイコン"
+          width="120"
+          height="120"
+          class="rounded-3xl shadow-md w-24 h-24 sm:w-28 sm:h-28"
+        />
+        <div class="flex-1 text-center sm:text-left">
+          <p class="text-xs text-coral-dark font-semibold tracking-widest mb-1">LEARNING</p>
+          <h3 class="text-2xl font-bold mb-1 group-hover:text-coral-dark transition-colors">まなぶっち</h3>
+          <p class="text-sm text-ink-secondary mb-3">1セット3〜5分の、小学生の学習アプリ</p>
+          <p class="text-ink-primary leading-relaxed">
+            小学1年生の さんすう・こくご・せいかつ を、少しずつ。「きょうは おしまい」と言える学習アプリです。1年生の「きほん」から、6年間かけて中学受験のレベルまで広げていきます。
+          </p>
+          <p class="mt-4 text-sm text-coral-dark font-semibold">
+            アプリ紹介を見る →
+          </p>
+        </div>
+      </div>
+      <p class="text-xs text-ink-muted mt-5 text-center sm:text-right">
+        <span class="text-coral-dark">App Store で配信中（iPhone・iPad）</span>
       </p>
-    </article>
+    </a>
+
+    <!-- 家族の取り組み（2026-10-15 たっきー判断：おうちプリントは「家族の取り組み」として紹介する） -->
+    <a
+      href="https://ouchiprint.com/"
+      target="_blank"
+      rel="noopener"
+      class="group mt-6 block bg-coral-light/30 rounded-2xl p-6 sm:p-8 border border-coral-light/60 hover:border-coral transition-colors"
+    >
+      <div class="flex items-start gap-4">
+        <div class="text-4xl" aria-hidden="true">🖨️</div>
+        <div class="flex-1">
+          <p class="text-xs text-coral-dark font-semibold tracking-widest mb-2">FAMILY PROJECT — 家族の取り組み</p>
+          <h3 class="text-xl font-bold mb-2 group-hover:text-coral-dark transition-colors">おうちプリント</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed">
+            KCYFの家族がつくる、家で使える無料のプリント集です。幼児・小学生の知育ドリルや学習プリント、おこづかい表などの管理プリントを、わが家で実際に使ってから公開しています。
+          </p>
+          <p class="mt-3 text-sm text-coral-dark font-semibold">ouchiprint.com を見る →</p>
+        </div>
+      </div>
+    </a>
   </section>
 </BaseLayout>

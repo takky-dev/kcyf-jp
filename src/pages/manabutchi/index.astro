@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'まなぶっち — 1セット3〜5分の、小学生の学習アプリ';
+const description = '小学1年生のさんすう・こくご・せいかつを、教科書の順番を参考に少しずつ練習するiPhone・iPadアプリ。1セット5問、3〜5分。「きょうは おしまい」と言える学習アプリです。';
+
+const APP_STORE_URL = 'https://apps.apple.com/app/id6799164509';
+
+// 内容は App Store の説明文と一致させる（違うことを書くと約束違反になる）
+const features = [
+  {
+    icon: '⏱️',
+    title: '1セット5問、3〜5分',
+    body: '「きょうの べんきょう」を押すだけで、さんすう・こくご・せいかつを交互に出します。毎日すこしずつ、が続けやすい長さです。',
+  },
+  {
+    icon: '✍️',
+    title: '答えは「書く・動かす」',
+    body: 'ひらがな・カタカナ・漢字は指でなぞって書き、1画ずつ書き順を確かめます。時計は針を回し、数はおはじきを置いて答えます。',
+  },
+  {
+    icon: '🔊',
+    title: '問題を読み上げます',
+    body: '案内役の「るな」の声で読み上げるので、まだ字を読むのがゆっくりなお子さまでも進めやすくしています。読み上げは切ることもできます。',
+  },
+  {
+    icon: '🔁',
+    title: 'まちがえた問題は、その場でもう一度',
+    body: 'まちがえた問題はセットの最後にもう一度出します。3回まちがえたときは答えを見せて、次に進みます。',
+  },
+  {
+    icon: '🌙',
+    title: '「きょうは おしまい」と言える',
+    body: '1日に何セットやるかを、おうちの方が決められます。何日つづけたかは数えません。休んでも、責めたり減ったりしません。',
+  },
+  {
+    icon: '🔒',
+    title: '安心して使えます',
+    body: '会員登録・ログインは不要。学習の記録は端末の中だけに保存し、外には送りません。問題を解いている画面には広告を出しません。',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-coral-light/70 via-base-bg to-base-bg pointer-events-none"></div>
+    <div class="relative mx-auto max-w-5xl px-5 sm:px-6 pt-10 sm:pt-16 pb-12 sm:pb-20">
+      <div class="grid items-center gap-8 md:grid-cols-2">
+        <div class="order-2 md:order-1 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-3 mb-5">
+            <img
+              src="/images/manabutchi/icon.png"
+              alt="まなぶっちアプリのアイコン"
+              width="72"
+              height="72"
+              class="rounded-2xl shadow-md w-16 h-16 sm:w-[72px] sm:h-[72px]"
+            />
+            <div class="text-left">
+              <p class="text-xs text-coral-dark font-semibold tracking-widest">FOR KIDS</p>
+              <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">まなぶっち</h1>
+            </div>
+          </div>
+          <p class="text-lg sm:text-xl font-semibold text-ink-primary leading-relaxed">
+            1セット3〜5分。<br class="sm:hidden" />「きょうは おしまい」と言える学習アプリ。
+          </p>
+          <p class="mt-4 text-base text-ink-secondary leading-relaxed">
+            小学1年生の さんすう・こくご・せいかつ を、教科書の順番を参考に、少しずつ練習するアプリです。2年生以上のお子さまの、1年生のふくしゅうにも使えます。
+          </p>
+
+          <div class="mt-7 flex flex-wrap justify-center md:justify-start gap-3">
+            <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-ink-primary text-white px-5 py-3 rounded-full font-semibold hover:bg-ink-primary/80 transition-colors"
+            >
+              App Store で見る →
+            </a>
+            <a
+              href="/manabutchi/support"
+              class="inline-flex items-center gap-2 bg-white text-ink-primary px-5 py-3 rounded-full font-semibold border border-coral-light hover:border-coral hover:text-coral-dark transition-colors"
+            >
+              サポートを見る
+            </a>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 flex justify-center">
+          <img
+            src="/images/manabutchi/runa.png"
+            alt="まなぶっちの案内役 るな"
+            width="300"
+            height="480"
+            class="w-40 sm:w-52 md:w-60 h-auto drop-shadow-md"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特長 -->
+  <section class="mx-auto max-w-6xl px-5 sm:px-6 py-12 sm:py-16">
+    <h2 class="text-center text-2xl sm:text-3xl font-bold mb-3">まなぶっちの特長</h2>
+    <p class="text-center text-ink-secondary mb-10">
+      「勉強しなさい」と言う回数を、少しでも減らせたら。
+    </p>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map((f) => (
+        <article class="bg-white rounded-2xl p-6 shadow-sm border border-coral-light/40">
+          <div class="text-3xl mb-3">{f.icon}</div>
+          <h3 class="text-lg font-bold mb-2">{f.title}</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed">{f.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- これから -->
+  <section class="bg-coral-light/30">
+    <div class="mx-auto max-w-4xl px-5 sm:px-6 py-14">
+      <h2 class="text-center text-2xl sm:text-3xl font-bold mb-3">これから</h2>
+      <div class="bg-white rounded-2xl p-7 sm:p-10 shadow-sm border border-coral-light/40 space-y-5 leading-relaxed text-ink-primary">
+        <p>
+          いまは小学1年生のはんいです。小学1年生の「きほん」から、6年間かけて中学受験のレベルまで、学年といっしょに少しずつ広げていきます。
+        </p>
+        <p class="text-xs text-ink-muted pt-4 border-t border-coral-light/60">
+          学べる内容のくわしい一覧は <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="text-coral-dark underline underline-offset-2 hover:text-coral">App Store のページ</a> をご覧ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 規約・サポートリンク -->
+  <section class="mx-auto max-w-3xl px-5 sm:px-6 py-12 sm:py-16">
+    <h2 class="text-center text-2xl font-bold mb-6">各種ドキュメント</h2>
+    <div class="grid gap-3 sm:grid-cols-3">
+      <a href="/manabutchi/privacy" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors text-center">
+        <p class="text-sm font-bold mb-1">プライバシーポリシー</p>
+        <p class="text-xs text-ink-muted">データ取り扱いについて</p>
+      </a>
+      <a href="/manabutchi/terms" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors text-center">
+        <p class="text-sm font-bold mb-1">利用規約</p>
+        <p class="text-xs text-ink-muted">ご利用条件</p>
+      </a>
+      <a href="/manabutchi/support" class="bg-white rounded-xl p-5 border border-coral-light hover:border-coral transition-colors text-center">
+        <p class="text-sm font-bold mb-1">サポート</p>
+        <p class="text-xs text-ink-muted">お問い合わせ・FAQ</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
